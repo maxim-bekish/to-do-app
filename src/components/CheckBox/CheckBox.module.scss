@@ -1,0 +1,47 @@
+@import "./../../color.module.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
+  .xxx {
+    display: none;
+  }
+  .label {
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    // &:hover {
+      // .checkedBox {
+        // background-color: red;
+      // }
+    // }
+  }
+
+  .checkedBox {
+    border: 1px solid $green;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    margin-left: -26px;
+  }
+  .input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+  }
+
+}
+.img {border-radius: 5px;
+  background-color: $green;
+  box-sizing: border-box;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  margin-left: -26px;
+}

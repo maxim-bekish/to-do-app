@@ -3,13 +3,16 @@
 body {
   background-color: $darkGrey;
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 300;
   font-size: 0.875rem;
   margin: 0;
   padding: 30px;
-  box-sizing: border-box;
+  // box-sizing: border-box;
+  caret-color: white;
 }
 button {
+  cursor: pointer;
   background-color: $lightGrey;
   border: 0;
 
@@ -18,7 +21,15 @@ button {
   color: white;
 }
 .xxx {
+  h1 {
+    margin: 0;
+    font-size: 10px;
+    line-height: 100%;
+    font-weight: 300;
+    margin-top: -12px;
+  }
   display: flex;
+  gap: 10px;
   flex-direction: column;
   max-width: 200px;
   border-radius: 4px;
@@ -26,9 +37,17 @@ button {
   border: 1px solid $lightGrey;
 }
 input {
+  max-width: 100%;
+  &:focus {
+    border: 2px solid $green;
+    padding: 4px 4px;
+  }
+  outline: none;
   padding: 5px;
   &::placeholder {
     color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
   }
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid $lightGrey;
@@ -37,9 +56,78 @@ input {
 
 // -------------------------------------------
 .inputAge {
+  input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+  }
   display: flex;
+
   button {
     border-radius: 0px;
+    &:nth-child(2) {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-left: 0.5px solid white;
+    }
   }
+  .buttonArrow {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+// -------------------------------------------
+.select {
+  position: relative;
+  div {
+    display: flex;
+  }
+  input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+  }
+  display: flex;
+  flex-direction: column;
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .parent {
+    width: 100%;
+    cursor: pointer;
+    div {
+      &:hover {
+        width: 100%;
+        background-color: $green;
+      }
+    }
+    position: absolute;
+    top: 28px;
+    background-color: $darkGrey;
+    display: none;
+    flex-direction: column;
+  }
+}
+
+// -------------------------------------------
+.sss {
+  width: 35px;
+  button {
+    div {
+      div {
+        border: 0px !important;
+        --wave-color: #ffffff00 !important;
+      }
+    }
+  }
+}
+// -------------------------------------------
+
+.hr {
+  width: 90%;
+  border: 0.5px solid white;
+  transform: rotate(180deg);
 }
 // -------------------------------------------
