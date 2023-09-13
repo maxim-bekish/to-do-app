@@ -1,0 +1,15 @@
+@import "./../../color.module.scss";
+.sss {
+  gap: 0.625rem;
+  display: flex;
+  font-size: 0.7813rem;
+  width: 2.1875rem;
+  button {
+    div {
+      div {
+        border: 0rem !important;
+        --wave-color: #ffffff00 !important;
+      }
+    }
+  }
+}

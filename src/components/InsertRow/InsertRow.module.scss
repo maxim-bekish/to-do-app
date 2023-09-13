@@ -7,127 +7,61 @@ body {
   font-weight: 300;
   font-size: 0.875rem;
   margin: 0;
-  padding: 30px;
-  // box-sizing: border-box;
+  padding: 1.875rem;
   caret-color: white;
 }
+
 button {
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
   background-color: $lightGrey;
   border: 0;
-
-  border-radius: 4px;
-  padding: 6px;
+  font-weight: 300;
+  border-radius: 0.25rem;
+  padding: 0.5313rem;
   color: white;
 }
-.xxx {
+.InsertRow {
+  max-height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  max-width: 12.5rem;
+  border-radius: 0.25rem;
+  padding: 0.4375rem;
+  border: 0.0625rem solid $lightGrey;
   h1 {
+    display: flex;
+    width: 4.1875rem;
+    background-color: $darkGrey;
     margin: 0;
-    font-size: 10px;
+    font-size: 0.8125rem;
     line-height: 100%;
     font-weight: 300;
-    margin-top: -12px;
+    margin-top: -0.9375rem;
+    justify-content: center;
   }
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  max-width: 200px;
-  border-radius: 4px;
-  padding: 7px;
-  border: 1px solid $lightGrey;
 }
 input {
+  color: white;
   max-width: 100%;
   &:focus {
-    border: 2px solid $green;
-    padding: 4px 4px;
+    border: 0.125rem solid $green;
+    padding: 0.25rem 0.25rem;
   }
   outline: none;
-  padding: 5px;
+  padding: 0.3125rem;
   &::placeholder {
     color: white;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
   }
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid $lightGrey;
-  border-radius: 4px;
+  border: 0.0625rem solid $lightGrey;
+  border-radius: 0.25rem;
 }
-
-// -------------------------------------------
-.inputAge {
-  input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    width: 100%;
-  }
-  display: flex;
-
-  button {
-    border-radius: 0px;
-    &:nth-child(2) {
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-left: 0.5px solid white;
-    }
-  }
-  .buttonArrow {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-// -------------------------------------------
-.select {
-  position: relative;
-  div {
-    display: flex;
-  }
-  input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    width: 100%;
-  }
-  display: flex;
-  flex-direction: column;
-  button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .parent {
-    width: 100%;
-    cursor: pointer;
-    div {
-      &:hover {
-        width: 100%;
-        background-color: $green;
-      }
-    }
-    position: absolute;
-    top: 28px;
-    background-color: $darkGrey;
-    display: none;
-    flex-direction: column;
-  }
-}
-
-// -------------------------------------------
-.sss {
-  width: 35px;
-  button {
-    div {
-      div {
-        border: 0px !important;
-        --wave-color: #ffffff00 !important;
-      }
-    }
-  }
-}
-// -------------------------------------------
 
 .hr {
   width: 90%;
-  border: 0.5px solid white;
-  transform: rotate(180deg);
+  border: 0.0313rem solid #ffffff36;
 }
-// -------------------------------------------

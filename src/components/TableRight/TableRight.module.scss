@@ -1,0 +1,60 @@
+@import "./../../color.module.scss";
+.wrapperTable {
+  width: 28.125rem;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid $lightGrey;
+}
+
+.table {
+  div {
+    div {
+      div {
+        position: relative;
+        div:nth-child(2) {
+          table {
+            tbody {
+              tr {
+                height: 1.5rem !important;
+              }
+            }
+          }
+          // position: absolute;
+          width: 28.4375rem;
+
+          padding: 0 0.625rem 0 0.1875rem;
+          &::-webkit-scrollbar {
+            width: 0.375rem;
+            background-color: $lightGrey;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: $green;
+          }
+          overflow-y: scroll;
+        }
+        div:nth-child(1) {
+          table {
+            thead {
+              tr {
+                th {
+                  border-top: 0.25rem solid $darkGrey;
+                }
+              }
+            }
+          }
+          th {
+            text-align: center;
+          }
+
+          box-sizing: border-box;
+          position: absolute;
+          z-index: 1;
+
+          margin: 0 0.1875rem;
+          width: 27.25rem;
+        }
+      }
+    }
+  }
+}

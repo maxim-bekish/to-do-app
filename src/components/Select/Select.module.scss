@@ -1,0 +1,52 @@
+@import "./../../color.module.scss";
+.select {
+  position: relative;
+
+  div {
+    display: flex;
+  }
+  input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    color: white;
+  }
+  display: flex;
+  flex-direction: column;
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .parent {
+    width: 100%;
+    cursor: pointer;
+    div {
+      &:hover {
+        width: 100%;
+        background-color: $green;
+      }
+    }
+    position: absolute;
+    top: 1.75rem;
+    background-color: $darkGrey;
+    display: none;
+    flex-direction: column;
+  }
+  .active {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    cursor: pointer;
+    div {
+      &:hover {
+        width: 100%;
+        background-color: $green;
+      }
+    }
+    position: absolute;
+    top: 36px;
+    background-color: $darkGrey;
+    display: flex;
+    flex-direction: column;
+  }
+}

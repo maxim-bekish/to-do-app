@@ -1,5 +1,13 @@
 $darkGrey: #313131;
-$lightGrey: rgb(89, 89, 89);
+$lightGrey: #595959;
 $green: #217346;
 $white: #ffffff;
 
+// ---------------
+// стили для App
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  height: 19.0625rem;
+}
