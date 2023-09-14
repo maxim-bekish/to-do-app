@@ -1,11 +1,11 @@
 
-export default function xxx(arr) {
+export default function convertFromStringToNumber(arr) {
   const x = [];
   arr.split("").forEach((element) => {
     if (Number(element)) {
       x.push(element);
     }
   });
-  console.log("result: " + Number(x.join("")));
+ 
   return Number(x.join(""));
 }

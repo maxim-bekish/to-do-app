@@ -2,20 +2,31 @@ import st from "./InsertRow.module.scss";
 import Select from "../Select/Select";
 import InputAge from "../InputAge/InputAge";
 import Mode from "../Mode/Mode";
-import xxx from "./../../fun";
+import Context from "./../../context";
+
 import CheckBox from "./../CheckBox/CheckBox";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function InsertRow() {
-  let obj = [];
+  const x = useContext(Context);
+  let obj = {};
   const [value, setValue] = useState("Name");
   const handelChange = (e) => {
     setValue(" ");
     setValue(e.target.value);
   };
+  let data = localStorage.getItem("data");
   function handleClick() {
+    // console.log(obj);
     obj.name = value;
-    console.log(obj);
+    obj.age = x.useAge.value;
+    obj.address = x.useSelect.select;
+    obj.checkBox = x.useCheckBox.checkBox;
+    let t = JSON.parse(data);
+    t.push(obj);
+    
+    localStorage.setItem( 'data',JSON.stringify(t));
+    // console.log();
   }
 
   return (

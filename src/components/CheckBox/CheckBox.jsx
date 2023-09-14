@@ -1,14 +1,16 @@
-import { useState } from "react";
+import {  useState } from "react";
 import st from "./CheckBox.module.scss";
 import ok from "./../../svg/ok.svg";
-
+import { useContext } from "react";
+import Context from "./../../context";
 function Checkbox() {
+  let x = useContext(Context);
   const [check, setCheck] = useState(true);
-  let x;
+  let tag;
   if (check) {
-    x = <img src={ok} alt="" className={st.img} />;
+    tag = "";
   } else {
-    x = "";
+    tag = <img src={ok} alt="" className={st.img} />;
   }
 
   return (
@@ -16,13 +18,16 @@ function Checkbox() {
       <label className={st.label}>
         <input
           type="checkbox"
-          onChange={() => setCheck(!check)}
+          onChange={() => {
+            setCheck(!check);
+            x.useCheckBox.setCheckBoxState(check);
+          }}
           checked={check}
           className={st.input}
         />
         Employed
         <div className={st.checkedBox}></div>
-        {x}
+        {tag}
       </label>
     </div>
   );

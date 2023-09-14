@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import st from "./InputAge.module.scss";
-import xxx from "./../../fun.js";
+import convertFromStringToNumber from "./../../fun.js";
+import Context from "./../../context";
 
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
 
 export default function InputAge() {
   const [value, setValue] = useState("");
   const [arr, setArr] = useState(0);
+  let r = useContext(Context);
 
   const handleChange = (e) => {
     setValue();
-    setArr(xxx(e.target.value));
+    setArr(convertFromStringToNumber(e.target.value));
   };
   function test() {
     if (arr >= 18 && arr <= 100) {
@@ -39,6 +41,7 @@ export default function InputAge() {
   }
   useEffect(() => {
     setValue(arr);
+    r.useAge.setValueState(arr);
   }, [arr]);
 
   return (
