@@ -9,7 +9,7 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     width: 100%;
-    color: $white;
+    color:  var(--white);
   }
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
     }
     position: absolute;
     top: 1.75rem;
-    background-color: $darkGrey;
+    background-color: var(--background-color);
     display: none;
     flex-direction: column;
   }
@@ -45,7 +45,7 @@
     }
     position: absolute;
     top: 36px;
-    background-color: $darkGrey;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
   }

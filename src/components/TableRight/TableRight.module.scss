@@ -4,7 +4,7 @@
   height: 100%;
   box-sizing: border-box;
   border-radius: 0.3125rem;
-  border: 0.0625rem solid $lightGrey;
+  border: 0.0625rem solid var(--button-color);
 }
 
 .table {
@@ -31,7 +31,7 @@
           padding: 0 0.625rem 0 0.1875rem;
           &::-webkit-scrollbar {
             width: 0.375rem;
-            background-color: $lightGrey;
+            background-color: var(--button-color);
           }
           &::-webkit-scrollbar-thumb {
             background-color: $green;
@@ -44,7 +44,7 @@
             thead {
               tr {
                 th {
-                  border-top: 0.25rem solid $darkGrey;
+                  border-top: 0.25rem solid var(--background-color);
                 }
               }
             }

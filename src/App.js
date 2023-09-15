@@ -11,7 +11,7 @@ function App() {
   const [select, setSelectState] = useState("Subscribed");
   const [checkBox, setCheckBoxState] = useState("No employed");
   const [deleteCard, setDeleteCard] = useState("");
-
+  const [checked, setChecked] = useState(true);
   const [card, setCard] = useState(data);
   const state = {
     columns: [
@@ -57,6 +57,11 @@ function App() {
       card: card,
       setCard: setCard,
     },
+    useChecked: {
+      checked: checked,
+      setChecked: setChecked,
+    },
+
     useDeleteCard: {
       deleteCard: deleteCard,
       setDeleteCard: setDeleteCard,

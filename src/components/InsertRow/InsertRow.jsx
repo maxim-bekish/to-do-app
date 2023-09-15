@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 
 export default function InsertRow() {
   const state = useContext(Context);
-console.log(state)
+
   // let t = JSON.parse(data);
   const [value, setValue] = useState("Name");
   // const [listItem, setListItem] = useState(t);
@@ -17,7 +17,7 @@ console.log(state)
     setValue(" ");
     setValue(e.target.value);
   };
-  // console.log(state);
+
   function handleClick() {
     let newObj = {
       name: value,

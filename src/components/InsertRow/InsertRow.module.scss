@@ -8,11 +8,11 @@
   max-width: 12.5rem;
   border-radius: 0.25rem;
   padding: 0.4375rem;
-  border: 0.0625rem solid $lightGrey;
+  border: 0.0625rem solid var(--button-color);
   h1 {
     display: flex;
     width: 4.1875rem;
-    background-color: $darkGrey;
+    background-color: var(--background-color);
     margin: 0;
     font-size: 0.8125rem;
     line-height: 100%;
@@ -22,7 +22,7 @@
   }
 }
 input {
-  color: $white;
+  color:  var(--white);
   max-width: 100%;
   &:focus {
     border: 0.125rem solid $green;
@@ -31,16 +31,16 @@ input {
   outline: none;
   padding: 0.3125rem;
   &::placeholder {
-    color: $white;
+    color:  var(--white);
     font-family: "Roboto", sans-serif;
     font-weight: 300;
   }
   background-color: rgba(0, 0, 0, 0);
-  border: 0.0625rem solid $lightGrey;
+  border: 0.0625rem solid var(--button-color);
   border-radius: 0.25rem;
 }
 
 .hr {
   width: 90%;
-  border: 0.0313rem solid $lightGrey;
+  border: 0.0313rem solid var(--button-color);
 }

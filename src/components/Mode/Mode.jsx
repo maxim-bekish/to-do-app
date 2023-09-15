@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
 import st from "./Mode.module.scss";
+import Context from "./../../context";
 
 import { ConfigProvider, Switch } from "antd";
 
 export default function Mode() {
-  const [checked, setChecked] = useState(true);
+  const state = useContext(Context);
   const onChange = (checked) => {
-    setChecked(checked);
+    state.useChecked.setChecked(checked);
   };
   return (
     <div className={st.sss} style={{ width: 70 }}>
@@ -14,7 +15,7 @@ export default function Mode() {
         theme={{
           components: {
             Switch: {
-              handleBg: `${checked ? "#ffffff" : "#313131"} `,
+              handleBg: `${state.useChecked.checked ? "#ffffff" : "#313131"} `,
               handleSize: 12,
               trackHeight: 16,
               colorPrimary: `#217346`,
