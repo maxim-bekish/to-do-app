@@ -14,7 +14,7 @@ export default function Select() {
   const takeText = (e) => {
     setValueSelect(e.target.innerText);
     setList(!list);
-    console.log(valueSelect); //   итоговый результат
+    // console.log(valueSelect); //   итоговый результат
   };
   return (
     <>

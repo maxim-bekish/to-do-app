@@ -2,11 +2,12 @@ import { useContext } from "react";
 import st from "./TableRight.module.scss";
 import { ConfigProvider, Table } from "antd";
 import Context from "./../../context";
+
 export default function TableRight() {
   let state = useContext(Context);
-let x=localStorage.getItem('data')
-console.log(JSON.parse(x))
 
+  let obj = JSON.parse(localStorage.getItem("data"));
+  // console.log(state.useCard);
   return (
     <div className={st.wrapperTable}>
       <ConfigProvider
@@ -18,14 +19,13 @@ console.log(JSON.parse(x))
               margin: 0,
               lineWidth: 0,
               borderRadiusLG: 0,
-              colorFillAlter: "rgba(255, 0, 0, 0)", // hover
+              colorFillAlter: "#313131", // hover
               lineHeight: 0,
-              colorBorderSecondary: "#f0000",
+              colorBorderSecondary: "#595959",
               fontWeightStrong: 300,
-              colorTextHeading: "#f0000", // цвет текста загаловка
-              colorBgContainer: "#313131", // color background
+              colorTextHeading: "#ffffff", // цвет текста загаловка
               headerBg: "#595959", // цвет background загаловка
-              colorText: "#f0000", // цвет текста
+              colorText: "#ffffff", // цвет текста
               fontSize: 12, // размер шрифт
             },
           },
@@ -33,11 +33,23 @@ console.log(JSON.parse(x))
       >
         <Table
           className={st.table}
+          
           scroll={{
             y: 302,
           }}
-          width={40}
-          dataSource={JSON.parse(x)}
+          onRow={(e) => ({
+            onClick: () => {
+              state.useDeleteCard.setDeleteCard(e.key);
+            },
+          })}
+          // width={40}
+          rowClassName={(record) =>
+            record.key === state.useDeleteCard.deleteCard ? "test" : ""
+          }
+          // rowClassName={"test"}
+          dataSource={
+            state.useCard.card.length === 0 ? obj : state.useCard.card
+          }
           columns={state.columns}
           pagination={false}
         />

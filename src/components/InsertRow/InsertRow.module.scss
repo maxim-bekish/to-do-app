@@ -1,26 +1,5 @@
 @import "./../../color.module.scss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-body {
-  background-color: $darkGrey;
-  color: white;
-  font-family: "Roboto", sans-serif !important;
-  font-weight: 300;
-  font-size: 0.875rem;
-  margin: 0;
-  padding: 1.875rem;
-  caret-color: white;
-}
 
-button {
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  background-color: $lightGrey;
-  border: 0;
-  font-weight: 300;
-  border-radius: 0.25rem;
-  padding: 0.5313rem;
-  color: white;
-}
 .InsertRow {
   max-height: 100%;
   display: flex;
@@ -43,7 +22,7 @@ button {
   }
 }
 input {
-  color: white;
+  color: $white;
   max-width: 100%;
   &:focus {
     border: 0.125rem solid $green;
@@ -52,7 +31,7 @@ input {
   outline: none;
   padding: 0.3125rem;
   &::placeholder {
-    color: white;
+    color: $white;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
   }
@@ -63,5 +42,5 @@ input {
 
 .hr {
   width: 90%;
-  border: 0.0313rem solid #ffffff36;
+  border: 0.0313rem solid $lightGrey;
 }

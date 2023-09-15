@@ -1,10 +1,11 @@
-import {  useState } from "react";
+import { useState } from "react";
 import st from "./CheckBox.module.scss";
 import ok from "./../../svg/ok.svg";
 import { useContext } from "react";
 import Context from "./../../context";
 function Checkbox() {
   let x = useContext(Context);
+  console.log(x)
   const [check, setCheck] = useState(true);
   let tag;
   if (check) {
@@ -20,7 +21,11 @@ function Checkbox() {
           type="checkbox"
           onChange={() => {
             setCheck(!check);
-            x.useCheckBox.setCheckBoxState(check);
+            if (check) {
+              x.useCheckBox.setCheckBoxState("Employed");
+            } else {
+              x.useCheckBox.setCheckBoxState("No employed");
+            }
           }}
           checked={check}
           className={st.input}

@@ -4,11 +4,15 @@ import Table from "./components/TableRight/Table";
 import st from "./color.module.scss";
 import Context from "./context";
 import { useState } from "react";
+import data from "./data";
 
 function App() {
-  const [value, setValueState] = useState("");
-  const [select, setSelectState] = useState("");
-  const [checkBox, setCheckBoxState] = useState(false);
+  const [value, setValueState] = useState("Name");
+  const [select, setSelectState] = useState("Subscribed");
+  const [checkBox, setCheckBoxState] = useState("No employed");
+  const [deleteCard, setDeleteCard] = useState("");
+
+  const [card, setCard] = useState(data);
   const state = {
     columns: [
       {
@@ -36,57 +40,7 @@ function App() {
         width: 100,
       },
     ],
-    data: [
-      {
-        key: "1",
-        name: "Joe Black",
-        age: 1,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "2",
-        name: "Joe Black",
-        age: 2,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "3",
-        name: "Joe Black",
-        age: 3,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "4",
-        name: "Joe Black",
-        age: 3,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "5",
-        name: "Joe Black",
-        age: 3,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "6",
-        name: "Joe Black",
-        age: 3,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-      {
-        key: "7",
-        name: "Joe Black",
-        age: 3,
-        address: "Sydney No",
-        checkBox: "wewevwev",
-      },
-    ],
+
     useAge: {
       value: value,
       setValueState: setValueState,
@@ -99,10 +53,23 @@ function App() {
       checkBox: checkBox,
       setCheckBoxState: setCheckBoxState,
     },
+    useCard: {
+      card: card,
+      setCard: setCard,
+    },
+    useDeleteCard: {
+      deleteCard: deleteCard,
+      setDeleteCard: setDeleteCard,
+    },
+    deleteRow: function (x) {
+      state.useCard.setCard((element) => {
+        return element.filter(({ key }) => key !== x);
+      });
+    },
   };
-  localStorage.setItem("data", JSON.stringify(state.data));
+
   return (
-    <Context.Provider value={state}>
+    <Context.Provider value={state} >
       <div className={st.wrapper}>
         <InsertRow />
         <Table />

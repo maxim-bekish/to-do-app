@@ -11,18 +11,23 @@
   div {
     div {
       div {
-        position: relative;
         div:nth-child(2) {
           table {
+            border-collapse: collapse;
             tbody {
               tr {
                 height: 1.5rem !important;
+               
+                
+              }
+              .test {
+                // border: 1px solid black ;
+                font-size: 5rem;
+                background-color: green;
               }
             }
           }
-          // position: absolute;
           width: 28.4375rem;
-
           padding: 0 0.625rem 0 0.1875rem;
           &::-webkit-scrollbar {
             width: 0.375rem;
@@ -31,7 +36,8 @@
           &::-webkit-scrollbar-thumb {
             background-color: $green;
           }
-          overflow-y: scroll;
+      
+          height: 302px;
         }
         div:nth-child(1) {
           table {
@@ -46,11 +52,9 @@
           th {
             text-align: center;
           }
-
           box-sizing: border-box;
           position: absolute;
           z-index: 1;
-
           margin: 0 0.1875rem;
           width: 27.25rem;
         }

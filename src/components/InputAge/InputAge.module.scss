@@ -1,7 +1,7 @@
 @import './../../color.module.scss';
 .inputAge {
   input {
-    color: white;
+    color: $white;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     width: 100%;
@@ -13,7 +13,7 @@
     &:nth-child(2) {
       border-top-right-radius: 0.3125rem;
       border-bottom-right-radius: 0.3125rem;
-      border-left: 0.0313rem solid #ffffff1e;
+      // border-left: 0.0313rem solid #ffffff1e;
     }
   }
   .buttonArrow {
