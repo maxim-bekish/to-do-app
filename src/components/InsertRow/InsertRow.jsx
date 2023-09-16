@@ -27,7 +27,8 @@ export default function InsertRow() {
     };
 
     console.log(state.useAge.age);
-    // localStorage.setItem("DATA_BASE", JSON.parse(state.useCard.card));
+
+    localStorage.setItem("DATA_BASE", JSON.stringify(state.useCard.card));
     if (!state.useAge.age) {
       if (state.useAge.age === 0) {
         state.useCard.setCard((e) => [...e, newObj]);
@@ -41,6 +42,7 @@ export default function InsertRow() {
   }
   const handleClickDelete = () => {
     state.deleteRow(state.useDeleteCard.deleteCard);
+        localStorage.setItem("DATA_BASE", JSON.stringify(state.useCard.card));
   };
   return (
     <S.InsertRow>
