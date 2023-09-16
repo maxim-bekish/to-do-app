@@ -9,8 +9,8 @@ export const SelectMiniWrapperUp = styled("div")`
   display: flex;
 
   input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important ;
     width: 100%;
     color: ${({ theme }) => theme.white};
   }

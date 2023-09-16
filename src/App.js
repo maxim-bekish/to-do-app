@@ -4,14 +4,14 @@ import { ConfigProvider } from "antd";
 import { useTheme } from "styled-components";
 import styled from "styled-components";
 const Wrapper = styled.div`
+  margin-top: 12%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   gap: 1.25rem;
+  scale: 1.8;
   height: 19.0625rem;
 `;
 function App() {
-
-
   const theme = useTheme();
 
   const settings = {
