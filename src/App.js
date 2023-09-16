@@ -1,85 +1,57 @@
-// import css from "./css.module.scss";
 import InsertRow from "./components/InsertRow/InsertRow";
 import Table from "./components/TableRight/Table";
-import st from "./color.module.scss";
-import Context from "./context";
-import { useState } from "react";
-import data from "./data";
-
+import { ConfigProvider } from "antd";
+import { useTheme } from "styled-components";
+import styled from "styled-components";
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  height: 19.0625rem;
+`;
 function App() {
-  const [value, setValueState] = useState("Name");
-  const [select, setSelectState] = useState("Subscribed");
-  const [checkBox, setCheckBoxState] = useState("No employed");
-  const [deleteCard, setDeleteCard] = useState("");
-  const [checked, setChecked] = useState(true);
-  const [card, setCard] = useState(data);
-  const state = {
-    columns: [
-      {
-        title: "Name",
-        dataIndex: "name",
-        key: "name",
-        width: 130,
-      },
-      {
-        title: "Age",
-        dataIndex: "age",
-        key: "age",
-        width: 50,
-      },
-      {
-        title: "Subscription",
-        dataIndex: "address",
-        key: "address",
-        width: 100,
-      },
-      {
-        title: "Employment",
-        dataIndex: "checkBox",
-        key: "checkBox",
-        width: 100,
-      },
-    ],
 
-    useAge: {
-      value: value,
-      setValueState: setValueState,
-    },
-    useSelect: {
-      select: select,
-      setSelectState: setSelectState,
-    },
-    useCheckBox: {
-      checkBox: checkBox,
-      setCheckBoxState: setCheckBoxState,
-    },
-    useCard: {
-      card: card,
-      setCard: setCard,
-    },
-    useChecked: {
-      checked: checked,
-      setChecked: setChecked,
-    },
 
-    useDeleteCard: {
-      deleteCard: deleteCard,
-      setDeleteCard: setDeleteCard,
-    },
-    deleteRow: function (x) {
-      state.useCard.setCard((element) => {
-        return element.filter(({ key }) => key !== x);
-      });
+  const theme = useTheme();
+
+  const settings = {
+    components: {
+      Table: {
+        padding: 2,
+        paddingContentVerticalLG: 12,
+        margin: 0,
+        lineWidth: 0,
+        borderRadiusLG: 0,
+        colorFillAlter: theme.hover,
+        lineHeight: 0,
+        colorBorderSecondary: theme.hover,
+        fontWeightStrong: 300,
+        colorTextHeading: theme.white, // цвет текста загаловка тема1
+        headerBg: theme.button, // цвет background загаловка
+        colorText: theme.white, // цвет текста
+        fontSize: 12, // размер шрифт
+      },
+      Switch: {
+        handleBg: theme.background,
+        handleSize: 12,
+        trackHeight: 16,
+        colorPrimary: theme.green,
+        colorTextQuaternary: theme.green,
+        colorPrimaryHover: theme.greenLight,
+        colorTextTertiary: theme.greenLight,
+        trackMinWidth: "20",
+        handleShadow: "0 0px 0px 0 rgba(0, 35, 11, 0.2)",
+      },
     },
   };
 
   return (
-    <Context.Provider value={state} >
-      <div className={st.wrapper}>
+    <ConfigProvider theme={settings}>
+      <Wrapper>
         <InsertRow />
         <Table />
-      </div>
-    </Context.Provider>
+      </Wrapper>
+    </ConfigProvider>
   );
 }
 

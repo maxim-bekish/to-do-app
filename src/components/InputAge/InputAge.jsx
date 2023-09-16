@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import st from "./InputAge.module.scss";
+
 import convertFromStringToNumber from "./../../fun.js";
 import Context from "./../../context";
-
+import * as S from "./inputAge.styles";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import { useTheme } from "styled-components";
 
 export default function InputAge() {
-  const [value, setValue] = useState("");
-  const [arr, setArr] = useState(0);
-  let r = useContext(Context);
-
+  const [value, setValue] = useState("Age");
+  const [arr, setArr] = useState();
+  let state = useContext(Context);
+  const theme = useTheme();
   const handleChange = (e) => {
     setValue();
     setArr(convertFromStringToNumber(e.target.value));
@@ -41,27 +42,20 @@ export default function InputAge() {
   }
   useEffect(() => {
     setValue(arr);
-    r.useAge.setValueState(arr);
+    state.useAge.setAgeState(arr);
   }, [arr]);
 
   return (
-    <>
-      <div className={st.inputAge}>
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Age"
-          value={value}
-        />
-        <div className={st.buttonArrow}>
-          <button onClick={test2}>
-            <DownOutlined />
-          </button>
-          <button onClick={test}>
-            <UpOutlined />
-          </button>
-        </div>
+    <S.inputAgeStyled>
+      <input onChange={handleChange} type="text" value={value} />
+      <div>
+        <button onClick={test2}>
+          <DownOutlined />
+        </button>
+        <button onClick={test}>
+          <UpOutlined />
+        </button>
       </div>
-    </>
+    </S.inputAgeStyled>
   );
 }

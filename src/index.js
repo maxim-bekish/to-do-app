@@ -1,15 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Layer from "./Layer";
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import st from './color.module.scss'
-import './theme.css'
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <div className={st.root} >
-  <App />
-   </div>
-);
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<Layer />);
 
 reportWebVitals();

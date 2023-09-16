@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
-import st from "./CheckBox.module.scss";
+import { useState } from "react";
+
 import ok from "./../../svg/ok.svg";
 import { useContext } from "react";
 import Context from "./../../context";
+import * as S from "./checkBox.styles";
+import { useTheme } from "styled-components";
+
 function Checkbox() {
   let x = useContext(Context);
-
+  const theme = useTheme();
   const [check, setCheck] = useState(true);
   let tag;
   if (check) {
     tag = "";
   } else {
-    tag = <img src={ok} alt="" className={st.img} />;
+    tag = <img src={ok} alt="" />;
   }
 
-  // useEffect ( ()=>{
-
-  //   document.body.style.setProperty( '' )
-  // },[] )
-
   return (
-    <div className={st.wrapper}>
-      <label className={st.label}>
+    <S.checkBoxStyled>
+      <label>
         <input
           type="checkbox"
           onChange={() => {
@@ -29,17 +27,16 @@ function Checkbox() {
             if (check) {
               x.useCheckBox.setCheckBoxState("Employed");
             } else {
-              x.useCheckBox.setCheckBoxState("No employed");
+              x.useCheckBox.setCheckBoxState("Unemployed");
             }
           }}
           checked={check}
-          className={st.input}
         />
         Employed
-        <div className={st.checkedBox}></div>
+        <div></div>
         {tag}
       </label>
-    </div>
+    </S.checkBoxStyled>
   );
 }
 

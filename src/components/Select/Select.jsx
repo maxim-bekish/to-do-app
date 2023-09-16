@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import st from "./Select.module.scss";
+
 import Context from "./../../context";
 import { DownOutlined } from "@ant-design/icons";
-
+import * as S from "./select.styles";
+import { styled, useTheme } from "styled-components";
 export default function Select() {
   let x = useContext(Context);
   const [list, setList] = useState(true);
@@ -14,33 +15,47 @@ export default function Select() {
   const takeText = (e) => {
     setValueSelect(e.target.innerText);
     setList(!list);
-    // console.log(valueSelect); //   итоговый результат
   };
+  const theme = useTheme();
+  const SelectMiniWrapperDown = styled.div`
+    width: 100%;
+    cursor: pointer;
+    display: ${list ? "none" : "flex"};
+    position: absolute;
+    z-index: 3;
+    top: 2.3rem;
+    background-color: ${({ theme }) => theme.background};
+    flex-direction: column;
+gap:5px;
+    div {    
+      
+      font-size: 13px;
+      
+      &:hover {
+        width: 100%;
+        background-color: ${({ theme }) => theme.green};
+      }
+    }
+  `;
+
   return (
-    <>
-      <div className={st.select}>
-        <div>
-          <input onChange={handleChange} type="text" value={valueSelect} />
-          <button
-            onClick={() => {
-              setList(!list);
-            }}
-          >
-            <DownOutlined />
-          </button>
-        </div>
-        <div className={list ? `${st.parent}` : `${st.active}`}>
-          <div onClick={takeText} className={st.option}>
-            Subscribed
-          </div>
-          <div onClick={takeText} className={st.option}>
-            Not Subscribed
-          </div>
-          <div onClick={takeText} className={st.option}>
-            Other
-          </div>
-        </div>
-      </div>
-    </>
+    <S.selectWrapper>
+      <S.SelectMiniWrapperUp>
+        <input onChange={handleChange} type="text" value={valueSelect} />
+        <button
+          onClick={() => {
+            setList(!list);
+          }}
+        >
+          <DownOutlined />
+        </button>
+      </S.SelectMiniWrapperUp>
+
+      <SelectMiniWrapperDown>
+        <div onClick={takeText}>Subscribed</div>
+        <div onClick={takeText}>Not Subscribed</div>
+        <div onClick={takeText}>Other</div>
+      </SelectMiniWrapperDown>
+    </S.selectWrapper>
   );
 }

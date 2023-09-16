@@ -1,13 +1,15 @@
-@import "./../../color.module.scss";
-.wrapperTable {
+import { Table } from "antd";
+import styled from "styled-components";
+
+export const WrapperTable = styled("div")`
   width: 28.125rem;
   height: 100%;
   box-sizing: border-box;
   border-radius: 0.3125rem;
-  border: 0.0625rem solid var(--button-color);
-}
+  border: 0.0625rem solid ${({ theme }) => theme.button};
+`;
 
-.table {
+export const StyledTable = styled(Table)`
   div {
     div {
       div {
@@ -16,27 +18,20 @@
             border-collapse: collapse;
             tbody {
               tr {
+                cursor: pointer;
                 height: 1.5rem !important;
-               
-                
-              }
-              .test {
-                // border: 1px solid black ;
-                font-size: 5rem;
-                background-color: green;
               }
             }
           }
-          width: 28.4375rem;
-          padding: 0 0.625rem 0 0.1875rem;
+          width: 400px;
+          padding: 0.4375rem 0.625rem 0 0.1875rem;
           &::-webkit-scrollbar {
             width: 0.375rem;
-            background-color: var(--button-color);
+            background-color: ${({ theme }) => theme.button};
           }
           &::-webkit-scrollbar-thumb {
-            background-color: $green;
+            background-color: ${({ theme }) => theme.green};
           }
-      
           height: 302px;
         }
         div:nth-child(1) {
@@ -44,7 +39,7 @@
             thead {
               tr {
                 th {
-                  border-top: 0.25rem solid var(--background-color);
+                  border-top: 0.25rem solid ${({ theme }) => theme.background};
                 }
               }
             }
@@ -61,4 +56,4 @@
       }
     }
   }
-}
+`;

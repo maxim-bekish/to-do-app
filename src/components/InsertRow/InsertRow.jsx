@@ -1,17 +1,16 @@
-import st from "./InsertRow.module.scss";
 import Select from "../Select/Select";
 import InputAge from "../InputAge/InputAge";
 import Mode from "../Mode/Mode";
 import Context from "./../../context";
 import CheckBox from "./../CheckBox/CheckBox";
 import { useContext, useState } from "react";
+import * as S from "./insertRow.styles";
+import { useTheme } from "styled-components";
 
 export default function InsertRow() {
   const state = useContext(Context);
-
-  // let t = JSON.parse(data);
   const [value, setValue] = useState("Name");
-  // const [listItem, setListItem] = useState(t);
+  const theme = useTheme();
 
   const handelChange = (e) => {
     setValue(" ");
@@ -21,30 +20,30 @@ export default function InsertRow() {
   function handleClick() {
     let newObj = {
       name: value,
-      age: state.useAge.value,
+      age: state.useAge.age,
       address: state.useSelect.select,
       checkBox: state.useCheckBox.checkBox,
-      key: state.useAge.value + Math.random(),
+      key: state.useAge.age + Math.random(),
     };
-    // let newArr = [...listItem, newObj];
-    // 34 ==newArr
-    // newArr.forEach((e, i) => {
-    //   e.key = i;
-    // });
 
-  
-    let r = state.useCard.card;
-    // console.log(r);
-    // console.log(newArr);
-    state.useCard.setCard((e) => [...e, newObj]);
+    console.log(state.useAge.age);
+    // localStorage.setItem("DATA_BASE", JSON.parse(state.useCard.card));
+    if (!state.useAge.age) {
+      if (state.useAge.age === 0) {
+        state.useCard.setCard((e) => [...e, newObj]);
+      } else {
+        alert('Enter a number in the "Age" field and click Insert ');
+      }
+     
+    } else {
+      state.useCard.setCard((e) => [...e, newObj]);
+    }
   }
   const handleClickDelete = () => {
     state.deleteRow(state.useDeleteCard.deleteCard);
-    // console.log(fr)
-    // state.useCard.setCard(fr);
   };
   return (
-    <div className={st.InsertRow}>
+    <S.InsertRow>
       <h1>Insert Row</h1>
       <input
         type="text"
@@ -57,9 +56,9 @@ export default function InsertRow() {
       <Select />
       <CheckBox />
       <button onClick={handleClick}>Insert</button>
-      <hr className={st.hr} />
+      <hr />
       <Mode />
       <button onClick={handleClickDelete}> Delete</button>
-    </div>
+    </S.InsertRow>
   );
 }
